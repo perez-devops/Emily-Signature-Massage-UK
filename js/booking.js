@@ -8,13 +8,11 @@
  * (back to form, nothing sent) or Confirm -> real POST to Web3Forms, which emails the booking
  * details to whatever address is registered to WEB3FORMS_ACCESS_KEY below. Nothing opens on the
  * visitor's device; the email is sent server-side by Web3Forms.
- *
- * Access key is registered to hello@emilysignaturemassage.com. The key is meant to live in public
- * frontend code (Web3Forms validates by key + registered domain, not a secret token), so
- * committing it here is the documented normal usage, not a leak — consider restricting it to your
- * domain in the Web3Forms dashboard once the site is live, so it can't be reused elsewhere.
+ * Access key: c23f1602-5649-4329-a04e-ba3b6283ba81
+ * The key is configured to live in public frontend code (Web3Forms validates by key + registered domain),
+ * so committing it here is the documented normal usage.
  */
-var WEB3FORMS_ACCESS_KEY = 'a2794a75-9d79-4123-bd77-44b879e41792';
+var WEB3FORMS_ACCESS_KEY = 'c23f1602-5649-4329-a04e-ba3b6283ba81';
 
 function initBookingForm() {
   var form = document.getElementById('booking-form');
@@ -131,8 +129,17 @@ function initBookingForm() {
       body: JSON.stringify(payload)
     })
       .then(function (res) { return res.json(); })
-      .then(function (result) { return { ok: !!result.success }; })
-      .catch(function () { return { ok: false }; });
+      .then(function (result) {
+        if (result && result.success) {
+          return { ok: true, message: result.message };
+        }
+        console.warn('Web3Forms returned unsuccessful response:', result);
+        return { ok: false, message: (result && result.message) || 'Submission error' };
+      })
+      .catch(function (err) {
+        console.error('Web3Forms submission error:', err);
+        return { ok: false, message: err.message };
+      });
   }
 
   function performSubmission(data, paymentMethod) {

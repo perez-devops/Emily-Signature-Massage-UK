@@ -85,7 +85,34 @@
             aria-live="polite"
           ></div>
 
-          <form id="booking-form" novalidate>
+          <form
+            id="booking-form"
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            novalidate
+          >
+            <!-- Web3Forms Access Key & Configuration -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="c23f1602-5649-4329-a04e-ba3b6283ba81"
+            />
+            <input
+              type="hidden"
+              name="subject"
+              value="New Booking Request — Emily Signature Massage UK"
+            />
+            <input
+              type="hidden"
+              name="from_name"
+              value="Emily Signature Massage UK"
+            />
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none"
+            />
             <div class="form-row two-col">
               <div class="field" id="field-name">
                 <label for="name">Full name *</label>

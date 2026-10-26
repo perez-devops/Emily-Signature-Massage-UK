@@ -17,7 +17,7 @@ window.EMILY_CONTENT = {
     ],
     paymentOptions: [
       "Bank Transfer",
-      "Voucher",
+      "Apple Voucher",
       "Bitcoin / Crypto"
     ],
     social: {
@@ -210,7 +210,7 @@ window.EMILY_CONTENT = {
   faqs: [
     { q: "What should I expect at my first session?", a: "A short intake conversation about your health history and what's bothering you, then a session built around that — expect it to run a few minutes longer than a typical massage." },
     { q: "What if I need to cancel?", a: "Give at least 24 hours' notice and there's no charge. Cancellations inside 24 hours, or no-shows, are charged 50% of the service price." },
-    { q: "Do you require a deposit?", a: "A £100 booking fee is required to hold your appointment, payable by bank transfer, voucher, or Bitcoin/crypto." }
+    { q: "Do you require a deposit?", a: "A £100 booking fee is required to hold your appointment, payable by bank transfer, Apple Voucher, or Bitcoin/crypto." }
   ],
 
   finalCta: {
@@ -221,11 +221,11 @@ window.EMILY_CONTENT = {
   },
 
   booking: {
-    subhead: "This is a request, not an instant booking — we'll follow up by phone or email to confirm your time. A £100 booking fee, payable by bank transfer, voucher, or Bitcoin/crypto, secures your appointment.",
+    subhead: "This is a request, not an instant booking — we'll follow up by phone or email to confirm your time. A £100 booking fee, payable by bank transfer, Apple Voucher, or Bitcoin/crypto, secures your appointment.",
     noticeIntro: "No surprises — here's exactly what to expect:",
-    depositPolicy: "A £100 booking fee is required to confirm your appointment, payable by bank transfer, voucher, or Bitcoin/crypto. You'll choose your payment method after submitting this form.",
+    depositPolicy: "A £100 booking fee is required to confirm your appointment, payable by bank transfer, Apple Voucher, or Bitcoin/crypto. You'll choose your payment method after submitting this form.",
     cancellationPolicy: "Give at least 24 hours' notice to cancel or reschedule. Cancellations inside 24 hours, or no-shows, are charged 50% of the service price.",
-    paymentOptions: ["Bank Transfer", "Voucher", "Bitcoin / Crypto"],
+    paymentOptions: ["Bank Transfer", "Apple Voucher", "Bitcoin / Crypto"],
     submitLabel: "Send my request"
   },
 

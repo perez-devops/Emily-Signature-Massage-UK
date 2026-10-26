@@ -51,11 +51,19 @@ function initHeroAnimation(reduceMotion) {
 
   var video = document.getElementById('hero-video');
   if (video) {
-    video.addEventListener('error', hideHeroVideo, true);
-    video.querySelectorAll('source').forEach(function (s) { s.addEventListener('error', function () { if (video.readyState === 0) hideHeroVideo(); }); });
-    if (reduceMotion) { video.removeAttribute('autoplay'); video.removeAttribute('loop'); video.pause(); }
+    if (reduceMotion) {
+      video.removeAttribute('autoplay');
+      video.removeAttribute('loop');
+      video.pause();
+    } else {
+      var playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          // Autoplay policy prevented playback; poster remains visible
+        });
+      }
+    }
   }
-  function hideHeroVideo() { if (video) video.style.display = 'none'; }
 
   var media = hero.querySelector('.hero-media');
   var eyebrow = hero.querySelector('.eyebrow');

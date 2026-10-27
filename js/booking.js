@@ -8,11 +8,11 @@
  * (back to form, nothing sent) or Confirm -> real POST to Web3Forms, which emails the booking
  * details to whatever address is registered to WEB3FORMS_ACCESS_KEY below. Nothing opens on the
  * visitor's device; the email is sent server-side by Web3Forms.
- * Access key: c23f1602-5649-4329-a04e-ba3b6283ba81
+ * Access key: 48998d65-f8ac-4c46-bfa2-8c74d6788c25
  * The key is configured to live in public frontend code (Web3Forms validates by key + registered domain),
  * so committing it here is the documented normal usage.
  */
-var WEB3FORMS_ACCESS_KEY = 'c23f1602-5649-4329-a04e-ba3b6283ba81';
+var WEB3FORMS_ACCESS_KEY = '48998d65-f8ac-4c46-bfa2-8c74d6788c25';
 
 function initBookingForm() {
   var form = document.getElementById('booking-form');
@@ -107,8 +107,11 @@ function initBookingForm() {
    * email client involved — this happens entirely in the background.
    */
   function submitBookingRequest(data, paymentMethod) {
+    var keyInput = form.querySelector('input[name="access_key"]');
+    var activeKey = (keyInput && keyInput.value.trim()) || (data && data.access_key) || WEB3FORMS_ACCESS_KEY;
+
     var payload = {
-      access_key: WEB3FORMS_ACCESS_KEY,
+      access_key: activeKey,
       subject: 'New booking request — ' + data.name,
       from_name: data.name,
       replyto: data.email,
@@ -151,7 +154,7 @@ function initBookingForm() {
           showStatus('success', 'Thanks, ' + data.name.split(' ')[0] + ' — your request and £100 booking fee confirmation (' + paymentMethod + ') are in. We\'ll confirm your appointment by phone or email shortly.');
           form.reset();
         } else {
-          showStatus('error', 'Something went wrong sending your request. Please call the studio to book directly.');
+          showStatus('error', result.message || 'Something went wrong sending your request. Please call the studio to book directly.');
         }
       })
       .catch(function () {

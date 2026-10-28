@@ -18,6 +18,7 @@ window.EMILY_CONTENT = {
     paymentOptions: [
       "Bank Transfer",
       "Apple Voucher",
+      "Paypal",
       "Bitcoin / Crypto"
     ],
     social: {
@@ -221,11 +222,11 @@ window.EMILY_CONTENT = {
   },
 
   booking: {
-    subhead: "This is a request, not an instant booking — we'll follow up by phone or email to confirm your time. A £100 booking fee, payable by bank transfer, Apple Voucher, or Bitcoin/crypto, secures your appointment.",
+    subhead: "This is a request, not an instant booking — we'll follow up by phone or email to confirm your time. A £100 booking fee, payable by bank transfer, Apple Voucher, Paypal or Bitcoin/crypto, secures your appointment.",
     noticeIntro: "No surprises — here's exactly what to expect:",
-    depositPolicy: "A £100 booking fee is required to confirm your appointment, payable by bank transfer, Apple Voucher, or Bitcoin/crypto. You'll choose your payment method after submitting this form.",
+    depositPolicy: "A £100 booking fee is required to confirm your appointment, payable by bank transfer, Apple Voucher, Paypal or Bitcoin/crypto. You'll choose your payment method after submitting this form.",
     cancellationPolicy: "Give at least 24 hours' notice to cancel or reschedule. Cancellations inside 24 hours, or no-shows, are charged 50% of the service price.",
-    paymentOptions: ["Bank Transfer", "Apple Voucher", "Bitcoin / Crypto"],
+    paymentOptions: ["Bank Transfer", "Apple Voucher", "Paypal", "Bitcoin / Crypto"],
     submitLabel: "Send my request"
   },
 
